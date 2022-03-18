@@ -5,8 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="/css/app.css">
 </head>
 <body>
-    <h1>About Page</h1>
+    <div class="blog-item">
+        <?= $blog; ?>
+        <a href="/">Back</a>
+    </div>
 </body>
 </html>
