@@ -16,10 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('blogs');
 });
-Route::get('/blogs/{blogitem}',function($filename){
-    $path = __DIR__."/../resources/blogs/$filename.html";
+Route::get('/blogs/{blogitem}',function($slug){
+    $path = __DIR__."/../resources/blogs/$slug.html";
+    if(!file_exists($path)){
+        return redirect('/');
+    }
     $blog = file_get_contents($path);
     return view('blog',[
         'blog'=>$blog
     ]);
-});
+})->where('blogitem','[A-z\d\-_]+');
